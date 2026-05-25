@@ -1,301 +1,147 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-
-<script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Voss | Fashion Designer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">ELENA VOSS</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<canvas id="mycanvas"></canvas>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Elena Voss</h1>
+            <p class="tagline">Where Art Meets Fashion</p>
+            <a href="#portfolio" class="cta-button">View Collection</a>
+        </div>
+    </section>
 
-<script>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>With over 15 years of experience in the fashion industry, I specialize in creating timeless pieces that blend contemporary style with classic elegance. My designs have been featured in major fashion weeks and worn by celebrities worldwide.</p>
+                    <p>I believe that fashion is not just about clothing—it's about self-expression, confidence, and art. Each piece I create tells a unique story and is crafted with meticulous attention to detail.</p>
+                </div>
+                <div class="about-image">
+                    <div class="placeholder-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    var sketchProc = function(processingInstance) {
-        with (processingInstance) {
-          size(500,500)
-var score = 0;
-var player = {x:150,y:50,size:50};
-var coins = [];
-var mecoin = [];
-var bzcoin = [];
-var gravity = 0;
-var goUp = false;
-var crashed = false;
-var win = false;
-var gap = {height: 300, y:250};
-var smoke = [];
-var smokeTimer = 20;
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <h3>Spring Collection 2024</h3>
+                    <p>Bridal & Evening Wear</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <h3>Urban Chic</h3>
+                    <p>Street Fashion</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <h3>Ethereal Dreams</h3>
+                    <p>Couture Gowns</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <h3>Minimalist Luxe</h3>
+                    <p>Ready-to-Wear</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <h3>Bohemian Soul</h3>
+                    <p>Festival Collection</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image"></div>
+                    <h3>Corporate Elegance</h3>
+                    <p>Business Attire</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Custom Design</h3>
+                    <p>Bespoke clothing tailored to your unique style and measurements. From concept to creation, I'll bring your vision to life.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👗</div>
+                    <h3>Bridal Wear</h3>
+                    <p>Make your special day unforgettable with a custom-designed wedding dress that reflects your personality and dreams.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Styling Consultation</h3>
+                    <p>Professional styling services to help you build a wardrobe that works for your lifestyle and enhances your natural beauty.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Alterations</h3>
+                    <p>Expert alterations to ensure your clothes fit perfectly. From simple hem adjustments to complex restyling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Create Something Beautiful</h3>
+                    <p>Ready to bring your fashion dreams to life? Contact me to discuss your project or schedule a consultation.</p>
+                    <div class="contact-details">
+                        <p>📍 123 Fashion Avenue, New York, NY 10001</p>
+                        <p>📧 elena@elenavoss.com</p>
+                        <p>📱 (555) 123-4567</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Pinterest</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-
- var drawScore = function() {
-  fill(255, 255, 0);
-  textSize(24);
-  text(score,50,450);
-};
-
-
-
-
-
-var mousePressed = function() {
-  if (mouseButton === LEFT) {
-    goUp = true;
-    if (win) {
-  win = false;
-  player.y = 50;
-  gravity = 0;
-  score = 0;
-  coins = [];
-    }
-  }
-};
-
-
-
-
-
-var mouseReleased = function() {
-  if (mouseButton === LEFT) {
-    goUp = false;
-if (crashed) {
-  crashed = false;
-  player.y = 50;
-  gravity = 0;
-  score = 0;
-  coins = [];
-    }
-    
-    
-  }
-};
-
-
-var draw = function(){
- noStroke()
-  background(6,78,155);
-  drawPlayer();
-  drawScore();
-  doCoin();
-   memeCoin();
-   bCoin();
-doSmoke();
-if (crashed === false) {
-  movePlayer();
-  doCoin();
-  memeCoin();
-  bCoin();
-  }else {
-   youLoseScreen();
-  }
-  if (win === false) {
-  }else {
-  youWinScreen();
-  }
-};
-var doSmoke = function() {
- 
- smoke = smoke.filter((s) => {return s.x > -50});
- 
-  for(var s of smoke) {
-    fill(255,255,0,175);
-    ellipse(s.x, s.y, s.size, s.size);
-    
-    s.x -= 4;
-    s.size++
-  }
-};
-
-var setup = function() {
-  setInterval(createSmoke,100);
-};
-
-var createSmoke = function() {
-  var newSmoke = {x:player.x, y:player.y, size:10};
-  smoke.push(newSmoke);
-  
-  if(smokeTimer <= 0) {
-  smokeTimer = 5;
-  createSmoke();
-}else {
-  smokeTimer--;
-}
-
-};
-
-var doCoin = function() {
-  
-  var filteredCoins = coins.filter((coin) => {return coin.x > 0 && !coin.colected});
-  coins = filteredCoins;
-  
-  if (random(0,100) < 5) {
-    var newCoin = {x:600, y:random(0, 500), size:20, collected:false};
-    coins.push(newCoin);
-  }
-  for (var coin of coins){
-if (coin.collected) {
-  continue;
-}
-  fill(255, 255, 255);
-  ellipse(coin.x, coin.y, coin.size, coin.size);
-  
-  coin.x -=3;
-  
-  var playerRadius = player.size / 2;
-  var coinRadius = coin.size / 2;
-  var touchDistance = playerRadius + coinRadius;
-  
- if (dist(player.x, player.y, coin.x, coin.y) <touchDistance) {
-   coin.collected = true;
-   score += 5;
-    }
-  }
-};
-
-
-
-
-
-var memeCoin = function() {
-  
-  var filteredCoins = mecoin.filter((coin) => {return coin.x > 0 && !coin.colected});
-  mecoin = filteredCoins;
-  
-  if (random(0,100) < 1) {
-    var newCoin = {x:600, y:random(0, 500), size:20, collected:false};
-    mecoin.push(newCoin);
-  }
-  for (var coin of mecoin){
-if (coin.collected) {
-  continue;
-}
-  fill(255, 255, 0);
-  ellipse(coin.x, coin.y, coin.size, coin.size);
-  
-  coin.x -=3;
-  
-  var playerRadius = player.size / 2;
-  var coinRadius = coin.size / 2;
-  var touchDistance = playerRadius + coinRadius;
-  
- if (dist(player.x, player.y, coin.x, coin.y) <touchDistance) {
-   coin.collected = true;
-   score += 10;
-    }
-  }
-};
-
-var bCoin = function() {
-  
-  var filteredCoins = bzcoin.filter((coin) => {return coin.x > 0 && !coin.colected});
-  bzcoin = filteredCoins;
-  
-  if (random(0,100) < 1) {
-    var newCoin = {x:600, y:random(0, 500), size:20, collected:false};
-    bzcoin.push(newCoin);
-  }
-  for (var coin of bzcoin){
-if (coin.collected) {
-  continue;
-}
-  fill(0, 0, 0);
-  ellipse(coin.x, coin.y, coin.size, coin.size);
-  
-  coin.x -=3;
-  
-  var playerRadius = player.size / 2;
-  var coinRadius = coin.size / 2;
-  var touchDistance = playerRadius + coinRadius;
-  
- if (dist(player.x, player.y, coin.x, coin.y) <touchDistance) {
-   coin.collected = true;
-   score -= 5;
-    }
-  }
-};
-
-var drawPlayer = function() {
-  fill(255,255,0);
-  ellipse(player.x, player.y, player.size, player.size);
-  
-
-};
-
-var movePlayer = function() {
- if (goUp) {
-   gravity -= 0.4;
- }else {
-   gravity += 0.4;
- }
- if (gravity > 8) {
-   gravity = 8;
- }
-  if (gravity < -6) {
-   gravity = -6;
- }
- 
- player.y += gravity;
- 
- if (player.y > 500 || player.y < 0 || score == -5){
-   crashed = true;
- }
-if (score == 100 || score == 105 ){
-  win = true;
-   
-}
-};
-
-var youWinScreen = function() {
-  background(255,255,255);
-   textSize(100);
-  
- fill(255,0,0);
-  text("Y", 100,200);
-  fill(255, 153, 0);
-  text("O", 150,200);
-   fill(255, 230, 0);
-  text("U", 220,200);
-     fill(0, 255, 0);
-  text("W", 320,200);
-     fill(0, 0, 255);
-  text("I", 410,200);
-       fill(255, 0, 255);
-  text("N", 430,200);
-  
-  
-};
-
-var youLoseScreen = function() {
-  background(255,255,0);
-  
-  fill(0);
-  
-  textSize(24);
-  
-  text("Game Over", 200,200);
-  
-  text("Click to Restart", 180, 350);
-  
-  text("TAKE ME AWAY", 180, 400);
-  player.y = 100000000000000000000000000000000;
-};
-
-
-
-        }
-    }
-
-    var canvas = document.getElementById("mycanvas"); 
-    var processingInstance = new Processing(canvas, sketchProc); 
-
-</script>
-
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Elena Voss. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
-
 </html>
