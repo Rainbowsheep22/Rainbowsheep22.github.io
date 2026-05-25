@@ -142,12 +142,6 @@ body {
     color: var(--light-text);
 }
 
-.placeholder-image {
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-    border-radius: 5px;
-}
 
 /* Portfolio Section */
 .portfolio {
